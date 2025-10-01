@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"> 
+
+<head th:replace = "~{base::head}"></head>
+
+<body>
+    <!-- Navbar Start -->
+        <div th:replace="~{base::navbar}"></div>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+	<div th:replace = "~{base::header(text='Success')}"></div>
+    <!-- Page Header End -->
+
+
+    <!-- Success Start -->
+	<div class="container-fluid py-5 bg-light">
+		<div class="container d-flex justify-content-center">
+			<div class="col-md-8 col-lg-6">
+				<!-- Success Message -->
+				<div class="text-center mb-4">
+					<div class="mb-3">
+						<i class="bi bi-check-circle-fill text-success"
+							style="font-size: 3rem;"></i>
+					</div>
+					<h2 class="fw-bold" style="color: brown;">Reservation Confirmed!</h2>
+
+					<p class="text-muted">Thank you for booking with us. Here are
+						your reservation details:</p>
+				</div>
+
+				<!-- Reservation Card -->
+				<div class="card shadow border-0 rounded-4">
+					<div class="card-body p-4">
+						<h5 class="card-title mb-3 text-primary">Reservation Summary</h5>
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><strong>Id:</strong> <span
+								th:text="${booked.id}"></span></li>
+							<li class="list-group-item"><strong>Name:</strong> <span
+								th:text="${booked.name}"></span></li>
+							<li class="list-group-item"><strong>Phone:</strong> <span
+								th:text="${booked.phoneNumber}"></span></li>
+							<li class="list-group-item"><strong>Email:</strong> <span
+								th:text="${booked.email}"></span></li>
+							<li class="list-group-item"><strong>Date:</strong> <span
+								th:text="${booked.date}"></span></li>
+							<li class="list-group-item"><strong>Time:</strong> <span
+								th:text="${booked.time}"></span></li>
+							<li class="list-group-item"><strong>Number of
+									Guests:</strong> <span th:text="${booked.person}"></span></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Action Buttons -->
+				<div class="text-center mt-4">
+					<a href="/" class="btn btn-primary px-4 me-2">Back to Home</a> <a
+						href="/reservation" class="btn btn-outline-primary px-4">Book
+						Another</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Success End -->
+
+
+    <!-- Footer Start -->
+    	<div th:replace="~{base::footer}"></div>
+    <!-- Footer End -->
+
+
+	<!-- Back to Top -->
+    <div th:replace = "~{base::script}"></div>
+</body>
+
+</html>

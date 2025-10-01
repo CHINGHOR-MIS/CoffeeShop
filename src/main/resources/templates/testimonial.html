@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"> 
+
+<head th:replace = "~{base::head}"></head>
+
+<body>
+    <!-- Navbar Start -->
+        <div th:replace="~{base::navbar(testimonial='active')}"></div>
+    <!-- Navbar End -->
+
+	<!-- Page Header Start -->
+	<div th:replace = "~{base::header(text='Testimonial')}"></div>
+    <!-- Page Header End -->
+
+
+	<!-- Testimonial Start -->
+	<div th:fragment="Testimonial" class="container-fluid py-5 bg-light">
+		<div class="container">
+			<div class="section-title text-center mb-5">
+				<h4 class="text-primary text-uppercase" style="letter-spacing: 5px;">Testimonials</h4>
+				<h1 class="display-4">What Our Clients Say</h1>
+			</div>
+
+			<div class="owl-carousel testimonial-carousel">
+				<!-- Testimonial Item 1 -->
+				<div
+					class="testimonial-item bg-white p-4 rounded shadow-sm text-center">
+					<div class="mb-3">
+						<img src="img/testimonial-1.jpg" alt="Client 1"
+							class="rounded-circle mx-auto d-block"
+							style="width: 80px; height: 80px; object-fit: cover;">
+					</div>
+					<h5 class="font-weight-bold mb-1">Emily Johnson</h5>
+					<p class="text-muted mb-3">
+						<i>Food Blogger</i>
+					</p>
+					<p class="text-secondary">"Absolutely loved the ambiance and
+						the coffee! The online reservation was quick and easy, and
+						everything was perfectly ready when we arrived."</p>
+				</div>
+
+				<!-- Testimonial Item 2 -->
+				<div
+					class="testimonial-item bg-white p-4 rounded shadow-sm text-center">
+					<div class="mb-3">
+						<img src="img/testimonial-2.jpg" alt="Client 2"
+							class="rounded-circle mx-auto d-block"
+							style="width: 80px; height: 80px; object-fit: cover;">
+					</div>
+					<h5 class="font-weight-bold mb-1">Michael Lee</h5>
+					<p class="text-muted mb-3">
+						<i>Software Engineer</i>
+					</p>
+					<p class="text-secondary">"Great experience! The staff were
+						friendly, and the coffee was top-notch. I’ll definitely be coming
+						back with friends."</p>
+				</div>
+
+				<!-- Testimonial Item 3 -->
+				<div
+					class="testimonial-item bg-white p-4 rounded shadow-sm text-center">
+					<div class="mb-3">
+						<img src="img/testimonial-3.jpg" alt="Client 3"
+							class="rounded-circle mx-auto d-block"
+							style="width: 80px; height: 80px; object-fit: cover;">
+					</div>
+					<h5 class="font-weight-bold mb-1">Sophia Martinez</h5>
+					<p class="text-muted mb-3">
+						<i>Graphic Designer</i>
+					</p>
+					<p class="text-secondary">"I loved the cozy atmosphere and the
+						delicious pastries. Highly recommend booking a table online to
+						avoid waiting."</p>
+				</div>
+
+				<!-- Testimonial Item 4 -->
+				<div
+					class="testimonial-item bg-white p-4 rounded shadow-sm text-center">
+					<div class="mb-3">
+						<img src="img/testimonial-4.jpg" alt="Client 4"
+							class="rounded-circle mx-auto d-block"
+							style="width: 80px; height: 80px; object-fit: cover;">
+					</div>
+					<h5 class="font-weight-bold mb-1">Daniel Kim</h5>
+					<p class="text-muted mb-3">
+						<i>Entrepreneur</i>
+					</p>
+					<p class="text-secondary">"The perfect place to relax and enjoy
+						quality coffee. Booking online was simple, and the service was
+						excellent."</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Testimonial End -->
+
+
+
+	<!-- Footer Start -->
+    	<div th:replace="~{base::footer}"></div>
+    <!-- Footer End -->
+
+
+	<!-- Back to Top -->
+    <div th:replace = "~{base::script}"></div>
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org">
+
+<head th:replace = "~{base::head}"></head>
+
+<body>
+    <!-- Navbar Start -->
+    <div th:replace="~{base::navbar(home='active')}"></div>
+    <!-- Navbar End -->
+
+	<!-- Carousel Start -->
+	<div id="heroCarousel" class="carousel slide carousel-fade"
+		data-ride="carousel">
+		<div class="carousel-inner">
+
+			<!-- Slide 1 -->
+			<div class="carousel-item active vh-100 position-relative">
+				<img src="img/carousel-1.jpg"
+					class="d-block w-100 h-100 object-cover" alt="Coffee 1">
+				<div class="overlay"></div>
+				<div
+					class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100 ms-md-5 ps-md-5"
+					style="max-width: 800px;">
+					<h5 class="text-uppercase text-warning mb-3 ">Since 1950</h5>
+					<h1 class="display-3 fw-bold text-white mb-4">Premium Coffee,
+						Timeless Taste</h1>
+					<p class="lead text-light mb-4">Handpicked beans roasted to
+						perfection. Experience coffee the way it was meant to be.</p>
+					<a href="menu"
+						class="btn btn-warning btn-lg px-5 rounded-pill shadow">Explore
+						Menu</a>
+				</div>
+			</div>
+
+			<!-- Slide 2 -->
+			<div class="carousel-item vh-100 position-relative">
+				<img src="img/carousel-2.jpg"
+					class="d-block w-100 h-100 object-cover" alt="Coffee 2">
+				<div class="overlay"></div>
+				<div
+					class="carousel-caption d-flex flex-column justify-content-center align-items-center h-100 ms-md-5 ps-md-5"
+					style="max-width: 700px;">
+					<h5 class="text-uppercase text-warning mb-3">Crafted Daily</h5>
+					<h1 class="display-3 fw-bold text-white mb-4">Brewed Fresh,
+						Served Hot</h1>
+					<p class="lead text-light mb-4">From farm to cup — a journey of
+						flavor, aroma, and tradition.</p>
+					<a href="#about"
+						class="btn btn-outline-light btn-lg px-5 rounded-pill">Learn
+						More</a>
+				</div>
+			</div>
+
+		</div>
+
+		<!-- Controls -->
+		<a class="carousel-control-prev" href="#heroCarousel" role="button"
+			data-slide="prev" style="left: -100px;"> <span
+			class="carousel-control-prev-icon"></span>
+		</a> <a class="carousel-control-next" href="#heroCarousel"
+			role="button" data-slide="next" style="right: -100px;"> <span
+			class="carousel-control-next-icon"></span>
+		</a>
+
+	</div>
+	<!-- Carousel End -->
+
+	<!-- Extra Styles -->
+	<style>
+.vh-100 {
+	height: 100vh;
+}
+
+.object-cover {
+	object-fit: cover;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.55);
+}
+
+.carousel-caption {
+	text-align: center;
+	z-index: 2;
+	transform: translateX(0%); /* push toward middle-left */
+}
+
+.carousel-caption h1 {
+	line-height: 1.2;
+}
+
+
+</style>
+
+
+
+
+
+	<!-- About Start -->
+    	<div th:replace="~{base::about}"></div>
+    <!-- About End -->
+
+
+    <!-- Service Start -->
+    	<div th:replace="~{base::service}"></div>
+    <!-- Service End -->
+
+
+    <!-- Offer Start -->
+		<div th:replace="~{base::offer}"></div>
+    <!-- Offer End -->
+
+
+    <!-- Menu Start -->
+    	<div th:replace="~{base::menu}"></div>
+    <!-- Menu End -->
+
+
+    <!-- Reservation Start -->
+    	<div th:replace="~{reservation :: reservation}"></div>
+    <!-- Reservation End -->
+
+
+    <!-- Testimonial Start -->
+    	<div th:replace="~{Testimonial :: Testimonial}"></div>
+    <!-- Testimonial End -->
+
+
+    <!-- Footer Start -->
+    	<div th:replace="~{base::footer}"></div>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+     <div th:replace = "~{base::script}"></div>
+</body>
+
+</html>

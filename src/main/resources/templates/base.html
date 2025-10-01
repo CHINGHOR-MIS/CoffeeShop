@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="utf-8">
+    <title>KOPPEE - Coffee Shop HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free Website Template" name="keywords">
+    <meta content="Free Website Template" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<!-- Navbar Start -->
+	<div class="container-fluid p-0 nav-bar" th:fragment="navbar"
+		th:with="
+    																		home=${home}?:'',
+    																		about=${about}?:'',
+    																		service=${service}?:'',
+    																		menu=${menu}?:'',
+    																		reservation=${reservation}?:'',
+    																		testimonial=${testimonial}?:'',
+    																		contact=${contact}?:''
+    																		">
+		<nav class="navbar navbar-expand-lg bg-none navbar-dark py-3">
+			<a th:href="@{/home}" class="navbar-brand px-lg-4 m-0">
+				<h1 class="m-0 display-4 text-white">CaféNova</h1>
+			</a>
+			<button type="button" class="navbar-toggler" data-toggle="collapse"
+				data-target="#navbarCollapse">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse justify-content-between"
+				id="navbarCollapse">
+				<div class="navbar-nav ml-auto p-4">
+					<a th:href="@{/home}" th:class="'nav-item nav-link ' +${home}">Home</a>
+					<a th:href="@{/about}" th:class="'nav-item nav-link ' + ${about}">About</a>
+					<a th:href="@{/service}"
+						th:class="'nav-item nav-link ' + ${service}">Service</a> <a
+						th:href="@{/menu}" th:class="'nav-item nav-link ' + ${menu}">Menu</a>
+					<div class="nav-item dropdown">
+						<a href="#"
+							th:class="'nav-link dropdown-toggle ' +${reservation} +${testimonial  }"
+							data-toggle="dropdown">Pages</a>
+						<div class="dropdown-menu text-capitalize">
+							<a th:href="@{/reservation}"
+								th:class="'dropdown-item ' +${reservation}">Reservation</a> <a
+								th:href="@{/testimonial}"
+								th:class="'dropdown-item ' +${testimonial}">Testimonial</a>
+						</div>
+					</div>
+					<a th:href="@{/contact}"
+						th:class="'nav-item nav-link ' +${contact}">Contact</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+	<!-- Navbar End -->
+	
+	    <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 position-relative overlay-bottom" th:fragment="header" th:with="
+    																											text=${text}
+    																											">
+        <div class="d-flex flex-column align-items-center justify-content-center pt-0 pt-lg-5" style="min-height: 400px">
+            <h1 class="display-4 mb-3 mt-0 mt-lg-5 text-white text-uppercase" th:text="${text}">About Us</h1>
+            <div class="d-inline-flex mb-lg-5">
+                <p class="m-0 text-white"><a class="text-white" href="">Home</a></p>
+                <p class="m-0 text-white px-2">/</p>
+                <p class="m-0 text-white " th:text="${text}">About Us</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+	<!-- About Start -->
+	<div th:fragment="about" class="container-fluid py-5"
+		style="background-color: #FFFBF2;">
+		<div class="container">
+			<div class="row align-items-center">
+
+				<!-- Left Column: Text -->
+				<div class="col-lg-6">
+					<h3 class="mb-3"
+						style="color: #6F4E37; letter-spacing: 2px; text-transform: uppercase;">About
+						Us</h3>
+					<h1 class="display-4 font-weight-bold mb-3" style="color: #2F2F2F;">
+						Crafting Coffee Moments Since 1950</h1>
+					<h5 class="mb-4" style="color: #5a5a5a;">From bean to cup, our
+						passion for excellence has guided us for over 70 years.</h5>
+					<p class="mb-4" style="color: #5a5a5a;">Our journey started in
+						1950 with a simple dream: to bring people together over a
+						perfectly brewed cup of coffee. Today, we partner with farmers
+						around the world, practicing sustainable sourcing and ethical
+						trade. Our roasters handcraft every batch to highlight unique
+						flavors, ensuring that each sip brings warmth, comfort, and
+						inspiration.</p>
+
+					<!-- Highlights Grid -->
+					<div class="row mb-4">
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-coffee mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Premium Beans</strong>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-seedling mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Sustainable Farming</strong>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-users mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Community First</strong>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-heart mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Crafted with Love</strong>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-fire mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Expert Roasters</strong>
+						</div>
+						<div class="col-sm-6 mb-3">
+							<i class="fa fa-globe mr-2" style="color: #6F4E37;"></i><strong
+								style="color: #2F2F2F;">Global Reach</strong>
+						</div>
+					</div>
+
+					<!-- Buttons -->
+					<div>
+						<a href="#" class="btn px-4 py-2 mr-2"
+							style="background-color: #6F4E37; color: #fff; border: none;">Learn
+							More</a> <a href="contact" class="btn px-4 py-2"
+							style="border: 2px solid #6F4E37; color: #6F4E37;">Contact Us</a>
+					</div>
+				</div>
+
+				<!-- Right Column: Image -->
+				<div class="col-lg-6 text-center">
+					<img src="img/about.png" alt="About Us"
+						class="img-fluid rounded shadow"
+						style="max-height: 550px; object-fit: cover;">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- About End -->
+
+	<!-- Service Start -->
+	<div th:fragment="service">
+		<section class="py-5 bg-light">
+			<div class="container">
+				<div class="text-center mb-5">
+					<h4 class="text-primary text-uppercase"
+						style="letter-spacing: 5px;">Our Services</h4>
+					<h1 class="display-4 fw-bold">Experience Coffee Like Never
+						Before</h1>
+					<p class="lead text-muted">Discover our premium services
+						designed for coffee lovers</p>
+				</div>
+				<div class="row g-4">
+					<!-- Service Card 1 -->
+					<div class="col-md-6 col-lg-3">
+						<div class="card h-100 shadow border-0 text-center service-card">
+							<div class="card-img-wrapper position-relative">
+								<img th:src="@{/img/service-1.jpg}"
+									class="card-img-top rounded-top" alt="Fastest Door Delivery">
+								<div class="card-img-overlay d-flex align-items-end p-0">
+									<div class="overlay-gradient w-100 p-3 text-start text-white">
+										<h5 class="card-title text-white ">								
+											<i class="fa fa-truck service-icon me-2 "></i>Fastest Door
+											Delivery
+										</h5>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p class="card-text text-muted">Enjoy lightning-fast
+									delivery of your favorite coffee blends, right to your
+									doorstep.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Service Card 2 -->
+					<div class="col-md-6 col-lg-3">
+						<div class="card h-100 shadow border-0 text-center service-card">
+							<div class="card-img-wrapper position-relative">
+								<img th:src="@{/img/service-2.jpg}"
+									class="card-img-top rounded-top" alt="Fresh Coffee Beans">
+								<div class="card-img-overlay d-flex align-items-end p-0">
+									<div class="overlay-gradient w-100 p-3 text-start text-white">
+										<h5 class="card-title text-white">
+											<i class="fa fa-coffee service-icon me-2"></i>Fresh Coffee
+											Beans
+										</h5>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p class="card-text text-muted">We source only the freshest,
+									organic beans for a rich and authentic taste.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Service Card 3 -->
+					<div class="col-md-6 col-lg-3">
+						<div class="card h-100 shadow border-0 text-center service-card">
+							<div class="card-img-wrapper position-relative">
+								<img th:src="@{/img/service-3.jpg}"
+									class="card-img-top rounded-top" alt="Best Quality Coffee">
+								<div class="card-img-overlay d-flex align-items-end p-0">
+									<div class="overlay-gradient w-100 p-3 text-start text-white">
+										<h5 class="card-title text-white">
+											<i class="fa fa-award service-icon me-2"></i>Best Quality
+											Coffee
+										</h5>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p class="card-text text-muted">Award-winning blends and
+									expert roasting for the ultimate coffee experience.</p>
+							</div>
+						</div>
+					</div>
+					<!-- Service Card 4 -->
+					<div class="col-md-6 col-lg-3">
+						<div class="card h-100 shadow border-0 text-center service-card">
+							<div class="card-img-wrapper position-relative">
+								<img th:src="@{/img/service-4.jpg}"
+									class="card-img-top rounded-top" alt="Online Table Booking">
+								<div class="card-img-overlay d-flex align-items-end p-0">
+									<div class="overlay-gradient w-100 p-3 text-start text-white">
+										<h5 class="card-title text-white">
+											<i class="fa fa-table service-icon me-2"></i>Online Table
+											Booking
+										</h5>
+									</div>
+								</div>
+							</div>
+							<div class="card-body">
+								<p class="card-text text-muted">Reserve your table online
+									and skip the wait at our cozy coffee shop.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+	<!-- Service End -->
+	
+	<!-- Offer Start -->
+    <div th:fragment="offer" class="offer container-fluid my-5 py-5 text-center position-relative overlay-top overlay-bottom">
+        <div class="container py-5">
+            <h1 class="display-3 text-primary mt-3">50% OFF</h1>
+            <h1 class="text-white mb-3">Sunday Special Offer</h1>
+            <h4 class="text-white font-weight-normal mb-4 pb-3">Only for Sunday from 1st Jan to 30th Jan 2045</h4>
+            <form class="form-inline justify-content-center mb-4">
+                <div class="input-group">
+                    <input type="text" class="form-control p-4" placeholder="Your Email" style="height: 60px;">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary font-weight-bold px-4" type="submit">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Offer End -->
+	
+	<!-- Menu Start -->
+	<div th:fragment="menu" class="container-fluid pt-5 "
+		style="background-color:#FFFBF2;">
+		<div class="container text-center ">
+			<div class="section-title mb-5">
+				<h4
+					style="color: #e67e22; text-transform: uppercase; letter-spacing: 5px; margin-bottom: 10px;">
+					Menu and Pricing</h4>
+				<h1 style="font-size: 42px; font-weight: bold; margin-bottom: 20px;">☕
+					Our Special Coffee</h1>
+				<p
+					style="max-width: 650px; margin: 0 auto; font-size: 16px; color: #555;">
+					Enjoy our handcrafted coffee made with love and served with
+					perfection.</p>
+			</div>
+
+			<div class="row">
+				<!-- Hot Coffee -->
+				<div class="col-lg-6 mb-5">
+					<h2
+						style="margin-bottom: 30px; border-bottom: 2px solid #e67e22; display: inline-block; padding-bottom: 5px; color: #333;">
+						Hot Coffee 🔥</h2>
+
+					<!-- Item 1 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-1.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$5</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Black Coffee</h4>
+							<p style="margin: 0; color: #666;">Strong and bold, the
+								classic choice for coffee lovers.</p>
+						</div>
+					</div>
+
+					<!-- Item 2 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-2.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$7</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Chocolate
+								Coffee</h4>
+							<p style="margin: 0; color: #666;">A sweet delight with rich
+								cocoa flavors blended in.</p>
+						</div>
+					</div>
+
+					<!-- Item 3 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-4.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$6</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Cappuccino</h4>
+							<p style="margin: 0; color: #666;">Creamy and frothy, perfect
+								for mornings.</p>
+						</div>
+					</div>
+
+					<!-- Item 4 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-5.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$6.5</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Caramel Latte</h4>
+							<p style="margin: 0; color: #666;">Sweet caramel blended with
+								espresso and milk.</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- Cold Coffee -->
+				<div class="col-lg-6 mb-5">
+					<h2
+						style="margin-bottom: 30px; border-bottom: 2px solid #e67e22; display: inline-block; padding-bottom: 5px; color: #333;">
+						Cold Coffee ❄️</h2>
+
+					<!-- Item 1 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-3.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$9</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Iced Latte</h4>
+							<p style="margin: 0; color: #666;">Cool and refreshing with
+								smooth creamy texture.</p>
+						</div>
+					</div>
+
+					<!-- Item 2 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-2.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$8</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Cold Mocha</h4>
+							<p style="margin: 0; color: #666;">Chocolatey goodness with a
+								chilled twist.</p>
+						</div>
+					</div>
+
+					<!-- Item 3 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-6.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$10</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Iced Caramel</h4>
+							<p style="margin: 0; color: #666;">Caramel-flavored chilled
+								coffee with a creamy finish.</p>
+						</div>
+					</div>
+
+					<!-- Item 4 -->
+					<div class="row align-items-center mb-4"
+						style="background: #fafafa; border-radius: 12px; padding: 15px; box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);">
+						<div class="col-4 col-sm-3 text-center">
+							<img src="img/menu-7.jpg" alt=""
+								style="width: 100px; height: 100px; object-fit: cover; border-radius: 50%; border: 3px solid #e67e22;">
+							<h5 style="color: #e67e22; margin-top: 10px;">$9.5</h5>
+						</div>
+						<div class="col-8 col-sm-9 text-start">
+							<h4 style="margin-bottom: 5px; color: #333;">Iced Mocha</h4>
+							<p style="margin: 0; color: #666;">A rich chocolatey coffee
+								served cold for a perfect refreshment.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Menu End -->
+	
+	<!-- Footer Start -->
+    <div th:fragment="footer" class="container-fluid footer text-white mt-5 pt-5 px-0 position-relative overlay-top">
+        <div class="row mx-0 pt-5 px-sm-3 px-lg-5 mt-4">
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Get In Touch</h4>
+                <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
+                <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
+                <p class="m-0"><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Follow Us</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                <div class="d-flex justify-content-start">
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square mr-2" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-lg btn-outline-light btn-lg-square" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Open Hours</h4>
+                <div>
+                    <h6 class="text-white text-uppercase">Monday - Friday</h6>
+                    <p>8.00 AM - 8.00 PM</p>
+                    <h6 class="text-white text-uppercase">Saturday - Sunday</h6>
+                    <p>2.00 PM - 8.00 PM</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5">
+                <h4 class="text-white text-uppercase mb-4" style="letter-spacing: 3px;">Newsletter</h4>
+                <p>Amet elitr vero magna sed ipsum sit kasd sea elitr lorem rebum</p>
+                <div class="w-100">
+                    <div class="input-group">
+                        <input type="text" class="form-control border-light" style="padding: 25px;" placeholder="Your Email">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary font-weight-bold px-3">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid text-center text-white border-top mt-4 py-4 px-sm-3 px-md-5" style="border-color: rgba(256, 256, 256, .1) !important;">
+            <p class="mb-2 text-white">Copyright &copy; <a class="font-weight-bold" href="#">Domain</a>. All Rights Reserved.</a></p>
+            <p class="m-0 text-white">Designed by <a class="font-weight-bold" href="https://htmlcodex.com">HTML Codex</a></p>
+        </div>
+    </div>
+    <!-- Footer End -->
+    
+	<!-- Back to Top -->
+	<div th:fragment="script" th:remove="tag">
+		<a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i
+			class="fa fa-angle-double-up"></i></a>
+		<!-- JavaScript Libraries -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+		<script
+			src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+		<script th:src="@{/lib/easing/easing.min.js}"></script>
+		<script th:src="@{/lib/waypoints/waypoints.min.js}"></script>
+		<script th:src="@{/lib/owlcarousel/owl.carousel.min.js}"></script>
+		<script th:src="@{/lib/tempusdominus/js/moment.min.js}"></script>
+		<script th:src="@{/lib/tempusdominus/js/moment-timezone.min.js}"></script>
+		<script th:src="@{/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js}"></script>
+		<!-- Contact Javascript File -->
+		<script th:src="@{/mail/jqBootstrapValidation.min.js}"></script>
+		<script th:src="@{/mail/contact.js}"></script>
+		<!-- Template Javascript -->
+		<script th:src="@{/js/main.js}"></script>
+	</div>
+</body>
+</html>

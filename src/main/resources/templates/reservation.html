@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org"> 
+
+<head th:replace = "~{base::head}"></head>
+
+<body>
+    <!-- Navbar Start -->
+        <div th:replace="~{base::navbar(reservation='active')}"></div>
+    <!-- Navbar End -->
+
+    <!-- Page Header Start -->
+	<div th:replace = "~{base::header(text='Reservation')}"></div>
+    <!-- Page Header End -->
+
+
+	<!-- Reservation Start -->
+	<div th:fragment="reservation" class="container-fluid py-5 bg-light">
+		<div class="container">
+			<div class="row align-items-center">
+
+				<!-- Left Info Section -->
+				<div class="col-lg-6 mb-5 mb-lg-0">
+					<div class="p-5 bg-primary text-white rounded shadow">
+						<h1 class="display-4 font-weight-bold">30% OFF</h1>
+						<h2 class="mb-4">For Online Reservation</h2>
+						<p>Book your table online and enjoy a seamless dining experience.
+						 Reserve in advance to guarantee your spot, take advantage of special 
+						 online-only discounts, and let us prepare a delightful meal just for you..</p>
+						<ul class="list-unstyled mt-4">
+							<li class="mb-2"><i class="fa fa-check-circle mr-2"></i>Instant
+								confirmation</li>
+							<li class="mb-2"><i class="fa fa-check-circle mr-2"></i>Exclusive
+								online deals</li>
+							<li class="mb-2"><i class="fa fa-check-circle mr-2"></i>Easy
+								cancellation</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Right Form Section -->
+				<div class="col-lg-6">
+					<div class="p-5 bg-white rounded shadow">
+						<h2 class="mb-4 text-center">Book Your Table</h2>
+						<form th:object="${booked}" th:action="@{/success}"
+							th:method="post">
+							<div class="form-group mb-3">
+								<input th:field="*{name}" type="text"
+									class="form-control form-control-lg rounded-pill border-primary"
+									placeholder="Name" required />
+							</div>
+							<div class="form-group mb-3">
+								<input th:field="*{phoneNumber}" type="tel"
+									class="form-control form-control-lg rounded-pill border-primary"
+									placeholder="Phone Number" required />
+							</div>
+							<div class="form-group mb-3">
+								<input th:field="*{email}" type="email"
+									class="form-control form-control-lg rounded-pill border-primary"
+									placeholder="Email" required />
+							</div>
+							<div class="form-row mb-3">
+								<div class="col">
+									<input th:field="*{date}" type="text"
+										class="form-control form-control-lg rounded-pill border-primary datetimepicker-input"
+										placeholder="Date" data-target="#date"
+										data-toggle="datetimepicker" required />
+								</div>
+								<div class="col">
+									<input th:field="*{time}" type="text"
+										class="form-control form-control-lg rounded-pill border-primary datetimepicker-input"
+										placeholder="Time" data-target="#time"
+										data-toggle="datetimepicker" required />
+								</div>
+							</div>
+							<div class="form-group mb-4">
+								<select th:field="*{person}"
+									class="custom-select form-control-lg rounded-pill border-primary">
+									<option selected value="0">Person</option>
+									<option value="1">1 Person</option>
+									<option value="2">2 Persons</option>
+									<option value="3">3 Persons</option>
+									<option value="4">4 Persons</option>
+									<option value="5">5 Persons</option>
+									<option value="10">10 Persons</option>
+									<option value="15">15+ Persons</option>
+								</select>
+							</div>
+							<button type="submit"
+								class="btn btn-primary btn-lg btn-block rounded-pill font-weight-bold">
+								Book Now</button>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<!-- Reservation End -->
+
+
+
+	<!-- Footer Start -->
+    	<div th:replace="~{base::footer}"></div>
+    <!-- Footer End -->
+
+
+	<!-- Back to Top -->
+    <div th:replace = "~{base::script}"></div>
+</body>
+
+</html>
